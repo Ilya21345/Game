@@ -20,10 +20,9 @@ public class Trap : MonoBehaviour
     private void Update()
     {
         distanceTOplayer = Vector2.Distance(_player.transform.position, transform.position);
-        var distanceTOplayer2 = distanceTOplayer*4;
         if (distanceTOplayer <= 7 && isNotAtacked)
         {
-            trapSprite.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1/ distanceTOplayer2);
+            trapSprite.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1/distanceTOplayer/1.2f);
         }else if(distanceTOplayer > 7 && isNotAtacked)
         {
             trapSprite.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0);

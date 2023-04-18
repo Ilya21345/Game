@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [Header("Скорость")]
+    [Header("РЎРєРѕСЂРѕСЃС‚СЊ")]
     public float moveSpeed;
-    [Header("Сила прыжка")]
+    [Header("РЎРёР»Р° РїСЂС‹Р¶РєР°")]
     public float jumpForce;
-    [Header("Скорость сползания со стены")]
+    [Header("РЎРєРѕСЂРѕСЃС‚СЊ СЃРєРѕР»СЊР¶РµРЅРёСЏ РїРѕ СЃС‚РµРЅРµ")]
     public float wallSlidingSpeed;
-    [Header("Сила прыжка от стены")]
+    [Header("РЎРёР»Р° РѕС‚С‚Р°Р»РєРёРІР°РЅРёСЏ РѕС‚ СЃС‚РµРЅС‹")]
     public float pushOutFromWallForce;
     public float wallJumpTime;
     public int jumpsAmount;
@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
     public Transform WallCheck;
     public LayerMask WallLayer;
 
+    public bool IsAttack = false;
+    public bool IsAttack2 = false;
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -48,6 +51,24 @@ public class Player : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         moveY = Input.GetAxisRaw("Vertical");
 
+        if(Input.GetMouseButtonDown(0) && !IsAttack)
+        {
+            
+            anim.SetTrigger("MightAttack");
+        }
+
+        if(IsAttack){
+            moveInput = 0;
+            if (Input.GetMouseButtonDown(0))
+            {
+
+                anim.SetTrigger("MightAttackCombo");
+            }
+        }
+
+        if(IsAttack2)
+            moveInput = 0;
+
         Jump();
         WallJump();
 
@@ -56,7 +77,7 @@ public class Player : MonoBehaviour
         else if(moveInput == 0 && !IsJumping)
             anim.SetBool("run", false);
 
-        if(rb2d.velocity.y < 0)
+        if (rb2d.velocity.y < 0)
         {
             anim.SetBool("fall", true);
             IsJumping = true;
@@ -67,8 +88,8 @@ public class Player : MonoBehaviour
             IsJumping = false;
         }
 
-        Destroy(GetComponent<PolygonCollider2D>());
-        gameObject.AddComponent<PolygonCollider2D>();
+        //Destroy(GetComponent<PolygonCollider2D>());
+        //gameObject.AddComponent<PolygonCollider2D>();
     }
 
     private void FixedUpdate()
