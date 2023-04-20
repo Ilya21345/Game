@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2790401900843205339}
   - component: {fileID: 6817172927773111720}
   - component: {fileID: 4754300456039463597}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: "\u041F\u0430\u0434\u0430\u044E\u0449\u0430\u044F \u043F\u0430\u043D\u0435\u043B\u044C"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -124128622, guid: 0287def264575f5488b0d21955db5689, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d342bbf40cb0674cb3f32a5945e5098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Timer: 0.4
+  timer: 1.5
